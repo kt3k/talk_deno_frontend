@@ -5,6 +5,7 @@ description: 'Deno Update: 最近のフロントエンド向け機能'
 favicon: ./assets/logo.svg
 remarkConfig:
   slideNumberFormat: '%current% / %total%'
+  highlightStyle: monokai
 css: |
   body {
     font-family: 'Avenir Next', 'Hiragino Kaku Gothic ProN', 'Meiryo', 'メイリオ', sans-serif;

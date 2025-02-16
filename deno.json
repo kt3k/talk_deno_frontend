@@ -1,0 +1,19 @@
+{
+  "lint": {
+    "rules": {
+      "tags": [
+        "recommended",
+        "react"
+      ]
+    }
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "jsxImportSourceTypes": "@types/react"
+  },
+  "imports": {
+    "react": "npm:react@^19.0.0",
+    "@types/react": "npm:@types/react@^19.0.8"
+  }
+}
