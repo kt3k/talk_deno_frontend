@@ -2,118 +2,97 @@
 <html>
   <head>
     <title>Deno Update: 最近のフロントエンド向け機能</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <meta
-      property="og:title"
-      content="Deno Update: 最近のフロントエンド向け機能"
-    />
-
-    <meta
-      property="og:image"
-      content="https://kt3k.github.io/talk_deno_frontend/assets/og-image.png"
-    />
-
-    <meta property="og:image:width" content="800" />
-
-    <meta property="og:image:height" content="503" />
-
-    <meta
-      property="og:description"
-      content="Deno Update: 最近のフロントエンド向け機能"
-    />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:image"
-      content="https://kt3k.github.io/talk_deno_frontend/assets/og-image.png"
-    />
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+    <meta property="og:title" content="Deno Update: 最近のフロントエンド向け機能"/>
+    
+    <meta property="og:image" content="https://kt3k.github.io/talk_deno_frontend/assets/og-image.png"/>
+    
+    <meta property="og:image:width" content="800"/>
+    
+    
+    <meta property="og:image:height" content="503"/>
+    
+    
+    
+    <meta property="og:description" content="Deno Update: 最近のフロントエンド向け機能" />
+    
+    
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="https://kt3k.github.io/talk_deno_frontend/assets/og-image.png" />
+    
+    
     <link rel="icon" href="./assets/logo.svg" type="image/svg+xml" />
-
+    
+    
     <style type="text/css">
       body {
-        font-family:
-          "Avenir Next",
-          "Hiragino Kaku Gothic ProN",
-          "Meiryo",
-          "メイリオ",
-          sans-serif;
-        font-weight: bold;
-      }
-      h1, h2, h3 {
-        font-weight: bold;
-      }
-      .remark-code,
-      .remark-inline-code {
-        font-family: "Menlo", "Monaco", "Courier new", monospace;
-      }
+  font-family: 'Avenir Next', 'Hiragino Kaku Gothic ProN', 'Meiryo', 'メイリオ', sans-serif;
+  font-weight: bold;
+}
+h1, h2, h3 {
+  font-weight: bold;
+}
+.remark-code,
+.remark-inline-code {
+  font-family: 'Menlo', 'Monaco', 'Courier new', monospace;
+}
 
-      code.remark-code {
-        display: block;
-        padding: 0.7em;
-        border-radius: 5px;
-        background-color: #272822;
-        color: #f3f3f3;
-        font-size: 23px;
-      }
+code.remark-code {
+  display: block;
+  padding: 0.7em;
+  border-radius: 5px;
+  background-color: #272822;
+  color: #f3f3f3;
+  font-size: 23px;
+}
 
-      .remark-slide-content {
-        color: #24292e;
-        font-size: 32px;
-        padding: 15px 60px;
-      }
+.remark-slide-content {
+  color: #24292e;
+  font-size: 32px;
+  padding: 15px 60px;
+}
 
-      .remark-slide-content.inverse {
-        color: #f3f3f3;
-        background-color: #272822;
-      }
+.remark-slide-content.inverse {
+  color: #f3f3f3;
+  background-color: #272822;
+}
 
-      .remark-slide-number a {
-        color: #24292e;
-        text-decoration: none;
-      }
+.remark-slide-number a {
+  color: #24292e;
+  text-decoration: none;
+}
 
-      .inverse .remark-slide-number a {
-        color: #f3f3f3;
-      }
+.inverse .remark-slide-number a {
+  color: #f3f3f3;
+}
 
-      .text-center {
-        text-align: center;
-      }
+.text-center {
+  text-align: center;
+}
 
-      .flex {
-        display: flex;
-      }
-      .items-center {
-        align-items: center;
-      }
-      .justify-center {
-        justify-content: center;
-      }
-      .gap-2 {
-        gap: 8px;
-      }
-      .text-4xl {
-        font-size: 40px;
-      }
+.flex {
+  display: flex;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.gap-2 {
+  gap: 8px;
+}
+.text-4xl {
+  font-size: 40px;
+}
 
-      @keyframes spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(-360deg);
-        }
-      }
+      @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
     </style>
   </head>
   <body>
-    <textarea
-      id="source"
-      style="display: none"
-    >
-class: middle center
+    <textarea id="source" style="display: none">class: middle center
 
 <img src="assets/logo.svg" width="150" />
 
@@ -129,7 +108,8 @@ class: middle center
 
 - x.com / github - @kt3k
 - Web エンジニア。
-- 2021年から Deno Land 社メンバー。最近は Standard Library と Node 互換性周り担当
+- 2021年から Deno Land 社メンバー。最近は Standard Library と Node
+  互換性周り担当
 
 ---
 class: center inverse
@@ -152,7 +132,6 @@ Deno ってサーバーサイドは気持ちよく使えるけど、<br />フロ
 --
 
 最近かなり改善してきてます
-
 ---
 
 ## トピック
@@ -175,8 +154,8 @@ Deno ってサーバーサイドは気持ちよく使えるけど、<br />フロ
 --
 
 実はきちんと型をつけるための設定があります。
-
 ---
+
 ## React の型付けのレシピ
 
 - jsxImportSource
@@ -221,6 +200,7 @@ deno.json を使う場合
   }
 }
 ```
+
 ---
 
 ## React の型付け
@@ -256,8 +236,8 @@ function Component() {
   return <div>count {value}</div>;
 }
 ```
-
 ---
+
 class: inverse middle center
 
 デモ
@@ -273,8 +253,8 @@ import { useState } from "react";
 この `@ts-types="@types/react"` の部分を書かなくても自動で探してこれるようにしようという議論があります。
 
 [denoland/deno#27569](https://github.com/denoland/deno/issues/27569)
-
 ---
+
 class: inverse middle center
 
 ところで
@@ -288,8 +268,8 @@ Deno はデフォルトで、Deno 環境に対して型チェックする。
 --
 
 deno.json の compilerOptions.lib という設定を変えると、Deno 以外の環境の型チェックが出来る
-
 ---
+
 ## Deno の型と環境
 
 ブラウザの型チェックをする設定
@@ -314,8 +294,6 @@ deno.json で型を変えるとプロジェクト全体に影響してしまう
 
 --
 1プロジェクトに、例えば、フロントエンドとバックエンドが混在している場合、きれいに設定する方法がなかった
-
-
 ---
 
 ## Workspace 別の型定義
@@ -340,6 +318,7 @@ Deno 1.45 から Workspace が使えるようになっている
 ---
 
 ./backend/deno.json
+
 ```json
 {
   "compilerOptions": {
@@ -349,6 +328,7 @@ Deno 1.45 から Workspace が使えるようになっている
 ```
 
 ./frontend/deno.json
+
 ```json
 {
   "compilerOptions": {
@@ -359,7 +339,8 @@ Deno 1.45 から Workspace が使えるようになっている
 
 ---
 
-注: Deno 2.2 は本日(2/17)時点では未リリースのため、今すぐ試したい場合はカナリーを使ってください
+注: Deno 2.2
+は本日(2/17)時点では未リリースのため、今すぐ試したい場合はカナリーを使ってください
 
 ```
 deno upgrade --canary
@@ -369,25 +350,22 @@ deno upgrade --canary
 class: middle inverse center
 
 デモ
-
 ---
+
 class: middle center inverse
 
 フロントエンドで使えるリントの話
-
 
 ---
 class: middle center inverse
 
 deno lint は Rust で書かれた高速なリンターですが、<br />フロントエンド系のルールがないのが弱点でした
-
-
-
 ---
 
 ## Rules of Hooks
 
-Deno 2.2 から [Rule of Hooks](https://react.dev/reference/rules/rules-of-hooks) が `deno lint` でチェックできるようになりました🎉
+Deno 2.2 から [Rule of Hooks](https://react.dev/reference/rules/rules-of-hooks)
+が `deno lint` でチェックできるようになりました🎉
 
 ---
 
@@ -398,9 +376,10 @@ Deno 2.2 から [Rule of Hooks](https://react.dev/reference/rules/rules-of-hooks
 function Foo() {
   const [state, useState] = useState();
 
-  return <span>{state}</span>
+  return <span>{state}</span>;
 }
 ```
+
 ---
 
 ## Rules of Hooks
@@ -410,7 +389,7 @@ function Foo() {
 function Foo() {
   if (cond) {
     const [state, useState] = useState();
-    return <span>{state}</span>
+    return <span>{state}</span>;
   }
   return null;
 }
@@ -439,7 +418,8 @@ function Foo() {
 
 ## React 向けリント設定
 
-React 向けのリントルールはデフォルトで有効化されていないので、deno.json で以下の設定をしてください
+React 向けのリントルールはデフォルトで有効化されていないので、deno.json
+で以下の設定をしてください
 
 ```json
 {
@@ -454,12 +434,10 @@ React 向けのリントルールはデフォルトで有効化されていな�
 }
 ```
 
-
 ---
 class: inverse middle center
 
 カスタムリントルール
-
 ---
 
 ## カスタムリントルール
@@ -473,8 +451,8 @@ export const MyRule = {
       if (node.name !== "a") return;
       ctx.report({ node, message: "should be b" });
     },
-  })
-}
+  }),
+};
 ```
 
 ---
@@ -482,7 +460,8 @@ export const MyRule = {
 ## カスタムリントルール
 
 - ESLint / typescript-eslint とほぼ互換な記述方法でリントルールをかけます
-- AST は [TSESTree](https://typescript-eslint.io/blog/asts-and-typescript-eslint/#ast-formats)
+- AST は
+  [TSESTree](https://typescript-eslint.io/blog/asts-and-typescript-eslint/#ast-formats)
 - フレームワーク固有、チーム固有なルールを JS/TS で書ける
 
 ---
@@ -502,6 +481,7 @@ export const MyRule = {
   }
 }
 ```
+
 ---
 
 ## カスタムリントルール
@@ -513,13 +493,13 @@ export const MyRule = {
 class: middle inverse center
 
 フロントエンドで使えるフォーマッターの話
-
 ---
 
 ## フォーマッタの追加
 
 - Deno 1.46 から CSS / HTML がフォーマットできるようになっています。
-- 特殊な設定なしで、`deno fmt` コマンドが .css .html ファイルを検出してフォーマットします。
+- 特殊な設定なしで、`deno fmt` コマンドが .css .html
+  ファイルを検出してフォーマットします。
 
 ---
 ## CSS フォーマッター
@@ -527,7 +507,6 @@ class: middle inverse center
 - LESS / SCSS / SASS にも対応
 
 <small>styled-component のような JS 内に書くタイプの CSS はまだ未対応</small>
-
 ---
 
 ## HTML フォーマッター
@@ -538,25 +517,23 @@ class: middle inverse center
 ## HTML フォーマッター
 
 - --unstable-component というフラグをつけると、Vue (.vue), Svelte (.svelte), Astro (.astro) のファイルがフォーマットできる
-
 ---
+
 ## フォーマッター、余談
 
 - YAML フォーマッターが追加 (1.46)
 - SQL フォーマッターが追加 (2.1, unstable 機能)
 - TOML (2.3 で入りそう)
 
-
 --
-<br /><br />deno fmt のカバー範囲についてはかなり許容的な態度になってきている
+<br /><br />deno fmt のカバー範囲についてはかなり許容的なポリシーになってきている
 
 ---
 class: middle center inverse
 
 おまけ
-
-
 ---
+
 ## 現在開発中の機能
 
 - JS の中の CSS のフォーマット
@@ -571,9 +548,8 @@ class: center inverse
 # <br />
 
 Deno はフロントエンド向けの機能を絶賛開発中
-
-
 ---
+
 class: center inverse
 
 # <br />
@@ -596,8 +572,8 @@ class: center
 これは出来ないのか? という疑問を抱いた場合は<br/>ぜひ issue を投げてください
 
 ## [github.com/denoland/deno/issues](https://github.com/denoland/deno/issues/new/choose)
-
 ---
+
 class: center
 
 # <br />
@@ -608,45 +584,27 @@ class: center
 
 で質問してみてください
 
-
 ご清聴ありがとうございました 🙇‍♂️
-</textarea
-    >
-    <div
-      style="z-index: -1; position: fixed; display: flex; align-items: center; gap: 4px"
-    >
-      <svg
-        style="animation: spin 1s linear infinite; width: 18px; height: 18px"
-        xmlns="http://www.w3.org/2000/svg"
-        class="icon icon-tabler icon-tabler-refresh"
-        width="44"
-        height="44"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="#2c3e50"
-        fill="none"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+</textarea>
+    <div style="z-index: -1; position: fixed; display: flex; align-items: center; gap: 4px;">
+      <svg style="animation: spin 1s linear infinite; width: 18px; height: 18px;" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
         <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
         <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
       </svg>
       <span>loading...</span>
     </div>
     <script src="remark.js"></script>
-
+    
     <script>
-      window.slideshow = remark.create({
-        "slideNumberFormat": "LY x Deno %current% / %total%",
-        "highlightStyle": "monokai",
-      });
+      window.slideshow = remark.create({"slideNumberFormat":"LY x Deno %current% / %total%","highlightStyle":"monokai"})
     </script>
-
+    
     <script>
-      window.LiveReloadOptions = {
-        host: "localhost",
-        port: "35729",
+      
+      ;window.LiveReloadOptions = {
+        host: 'localhost',
+        port: '35729'
       };
     </script>
   </body>
