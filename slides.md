@@ -432,7 +432,7 @@ class: middle inverse center
 - TOML (2.3 で入りそう)
 
 --
-<br /><br />deno fmt のカバー範囲についてはかなり許容的な態度になってきている
+<br /><br />deno fmt のカバー範囲についてはかなり許容的なポリシーになってきている
 
 ---
 class: middle center inverse
