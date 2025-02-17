@@ -136,9 +136,9 @@ Deno ってサーバーサイドは気持ちよく使えるけど、<br />フロ
 
 ## トピック
 
-- フロントエンドの型の話 <!-- React の型付け、workspace の型付け -->
-- フロントエンドのリントの話　<!-- Rules of hooks, JS Plugin -->
-- フロントエンドのフォーマッターの話 <!-- CSS / HTML /  -->
+- フロントエンドで使える型の話 <!-- React の型付け、workspace の型付け -->
+- フロントエンドで使えるリントの話　<!-- Rules of hooks, JS Plugin -->
+- フロントエンドで使えるフォーマッターの話 <!-- CSS / HTML /  -->
 
 ---
 ## React の型付け
@@ -160,7 +160,7 @@ Deno ってサーバーサイドは気持ちよく使えるけど、<br />フロ
 
 - jsxImportSource
   - JSX のランタイムを指定
-- jsxImportSourceTypes (Deno v1.46 で追加 🆕)
+- jsxImportSourceTypes (Deno v1.43 で追加 🆕)
   - JSX のランタイムの型を指定
 - ts-types
   - npm パッケージの型を指定
@@ -249,9 +249,17 @@ import { useState } from "react";
 [denoland/deno#27569](https://github.com/denoland/deno/issues/27569)
 
 ---
+class: inverse middle center
+
+ところで
+
+---
 ## Deno の型と環境
 
 Deno はデフォルトで、Deno 環境に対して型チェックする。
+
+
+--
 
 deno.json の compilerOptions.lib という設定を変えると、Deno 以外の環境の型チェックが出来る
 
@@ -309,7 +317,7 @@ Deno 1.45 から Workspace が使えるようになっている
 ```json
 {
   "compilerOptions": {
-    "lib": ["esnext", "deno.ns", "deno.globals"]
+    "lib": ["esnext", "deno.ns", "deno.window"]
   }
 }
 ```
@@ -330,6 +338,11 @@ Deno 1.45 から Workspace が使えるようになっている
 ```
 deno upgrade --canary
 ```
+
+---
+class: middle inverse center
+
+デモ
 
 ---
 class: middle center inverse
@@ -442,7 +455,8 @@ export const MyRule = {
 
 ## カスタムリントルール
 
-- ESLint とほぼ互換な記述方法でリントルールをかけます
+- ESLint / typescript-eslint とほぼ互換な記述方法でリントルールをかけます
+- AST は [TSESTree](https://typescript-eslint.io/blog/asts-and-typescript-eslint/#ast-formats)
 - フレームワーク固有、チーム固有なルールを JS/TS で書ける
 
 ---
@@ -500,6 +514,17 @@ class: middle inverse center
 - --unstable-component というフラグをつけると、Vue (.vue), Svelte (.svelte), Astro (.astro) のファイルがフォーマットできる
 
 ---
+## フォーマッター、余談
+
+- YAML フォーマッターが追加 (1.46)
+- SQL フォーマッターが追加 (2.1, unstable 機能)
+- TOML (2.3 で入りそう)
+
+
+--
+<br /><br />deno fmt のカバー範囲についてはかなり許容的な態度になってきている
+
+---
 class: middle center inverse
 
 おまけ
@@ -510,7 +535,9 @@ class: middle center inverse
 
 - JS の中の CSS のフォーマット
   - 例. emotion, styled-component
+  - [dprint-plugin-typescript#683](https://github.com/dprint/dprint-plugin-typescript/pull/683)
 - @types/ の自動検出
+  - [denoland/deno#27569](https://github.com/denoland/deno/issues/27569)
 
 ---
 class: center inverse
