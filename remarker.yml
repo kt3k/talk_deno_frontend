@@ -7,7 +7,7 @@ ogImageWidth: 800
 ogImageHeight: 503
 favicon: ./assets/logo.svg
 remarkConfig:
-  slideNumberFormat: '%current% / %total%'
+  slideNumberFormat: 'LY x Deno %current% / %total%'
   highlightStyle: monokai
 css: |
   body {
