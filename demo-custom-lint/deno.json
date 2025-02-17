@@ -1,0 +1,7 @@
+{
+  "lint": {
+    "plugins": [
+      "./no_jp.ts"
+    ]
+  }
+}
