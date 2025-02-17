@@ -1,0 +1,10 @@
+{
+  "lint": {
+    "rules": {
+      "tags": [
+        "recommended",
+        "react"
+      ]
+    }
+  }
+}

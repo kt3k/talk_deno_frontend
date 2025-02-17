@@ -231,13 +231,34 @@ Deno 1.45 から Workspace が使えるようになっている
 
 ---
 
-## Rule of Hooks
+注: Deno 2.2 は本日(2/17)時点では未リリースのため、今すぐ試したい場合はカナリーを使ってください
 
-Deno 2.2 から [Rule of Hooks](https://react.dev/reference/rules/rules-of-hooks) が `deno lint` でチェックできるようになりました。
+```
+deno upgrade --canary
+```
+
+---
+class: middle center inverse
+
+フロントエンドで使えるリントの話
+
+
+---
+class: middle center inverse
+
+deno lint は Rust で書かれた高速なリンターですが、<br />フロントエンド系のルールがないのが弱点でした
+
+
 
 ---
 
-## Rule of Hooks
+## Rules of Hooks
+
+Deno 2.2 から [Rule of Hooks](https://react.dev/reference/rules/rules-of-hooks) が `deno lint` でチェックできるようになりました🎉
+
+---
+
+## Rules of Hooks
 
 ```js
 // Good
@@ -249,7 +270,7 @@ function Foo() {
 ```
 ---
 
-## Rule of Hooks
+## Rules of Hooks
 
 ```js
 // Bad
@@ -261,6 +282,9 @@ function Foo() {
   return null;
 }
 ```
+
+--
+<img src="./assets/lint-error.png" width="800" />
 
 ---
 
@@ -277,6 +301,84 @@ function Foo() {
 - jsx-no-useless-fragment
 - jsx-props-no-spread-multi
 - jsx-void-dom-elements-no-children
+
+---
+
+## React 向けリント設定
+
+React 向けのリントルールはデフォルトで有効化されていないので、deno.json で以下の設定をしてください
+
+```json
+{
+  "lint": {
+    "rules": {
+      "tags": [
+        "recommended",
+        "react"
+      ]
+    }
+  }
+}
+```
+
+
+---
+class: inverse middle center
+
+カスタムリントルール
+
+---
+
+## カスタムリントルール
+
+Deno 2.2 からカスタムなリントルールを JS で書けるようになりました。
+
+```js
+export const MyRule = {
+  create: (ctx) => ({
+    Identifier(node) {
+      if (node.name !== "a") return;
+      ctx.report({ node, message: "should be b" });
+    },
+  })
+}
+```
+
+---
+
+## カスタムリントルール
+
+- ESLint とほぼ互換な記述方法でリントルールをかけます
+- フレームワーク固有、チーム固有なルールを JS/TS で書ける
+
+---
+
+## カスタムリントルール
+
+書いたルールを公開・シェアすることも可能
+
+```json
+{
+  "lint": {
+    "plugins": [
+      "./plugins/my-plugin.ts",
+      "jsr:@deno/lint-plugin1",
+      "npm:@deno/lint-plugin2"
+    ]
+  }
+}
+```
+---
+
+## カスタムリントルール
+
+- リリースされたばかりなので、現状はまだすぐ使えるリントルールは無い
+- 今後需要の高い ESLint ルールが移植されてエコシステム化することが期待できる
+
+---
+class: middle inverse center
+
+フロントエンドで使えるフォーマッターの話
 
 ---
 
@@ -304,16 +406,60 @@ function Foo() {
 - --unstable-component というフラグをつけると、Vue (.vue), Svelte (.svelte), Astro (.astro) のファイルがフォーマットできる
 
 ---
+class: middle center inverse
 
-## カスタムリントルール
-
-カスタムなリントルールを JS で書けるようになりました。
+おまけ
 
 
 ---
-
-##　今後の課題
+## 現在開発中の機能
 
 - JS の中の CSS のフォーマット
+  - 例. emotion, styled-component
+- @types/ の自動検出
+
+---
+class: center inverse
+
+# <br />
+
+Deno はフロントエンド向けの機能を絶賛開発中
 
 
+---
+class: center inverse
+
+# <br />
+
+フロントエンドの機能は非常に多様
+
+--
+
+Deno でどういうシナリオがサポートされるべきかは Deno チームも模索中
+
+--
+
+ユーザーの要望が多い機能ほど入る傾向があります
+
+---
+class: center
+
+# <br />
+
+これは出来ないのか? という疑問を抱いた場合は<br/>ぜひ issue を投げてください
+
+## [github.com/denoland/deno/issues](https://github.com/denoland/deno/issues/new/choose)
+
+---
+class: center
+
+# <br />
+
+もしくは<br />
+
+## deno-ja slack #question
+
+で質問してみてください
+
+
+ご清聴ありがとうございました 🙇‍♂️
