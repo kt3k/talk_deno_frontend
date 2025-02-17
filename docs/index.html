@@ -2,97 +2,118 @@
 <html>
   <head>
     <title>Deno Update: 最近のフロントエンド向け機能</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    
-    <meta property="og:title" content="Deno Update: 最近のフロントエンド向け機能"/>
-    
-    <meta property="og:image" content="https://kt3k.github.io/talk_deno_frontend/assets/og-image.png"/>
-    
-    <meta property="og:image:width" content="800"/>
-    
-    
-    <meta property="og:image:height" content="503"/>
-    
-    
-    
-    <meta property="og:description" content="Deno Update: 最近のフロントエンド向け機能" />
-    
-    
-    
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image" content="https://kt3k.github.io/talk_deno_frontend/assets/og-image.png" />
-    
-    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta
+      property="og:title"
+      content="Deno Update: 最近のフロントエンド向け機能"
+    />
+
+    <meta
+      property="og:image"
+      content="https://kt3k.github.io/talk_deno_frontend/assets/og-image.png"
+    />
+
+    <meta property="og:image:width" content="800" />
+
+    <meta property="og:image:height" content="503" />
+
+    <meta
+      property="og:description"
+      content="Deno Update: 最近のフロントエンド向け機能"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:image"
+      content="https://kt3k.github.io/talk_deno_frontend/assets/og-image.png"
+    />
+
     <link rel="icon" href="./assets/logo.svg" type="image/svg+xml" />
-    
-    
+
     <style type="text/css">
       body {
-  font-family: 'Avenir Next', 'Hiragino Kaku Gothic ProN', 'Meiryo', 'メイリオ', sans-serif;
-  font-weight: bold;
-}
-h1, h2, h3 {
-  font-weight: bold;
-}
-.remark-code,
-.remark-inline-code {
-  font-family: 'Menlo', 'Monaco', 'Courier new', monospace;
-}
+        font-family:
+          "Avenir Next",
+          "Hiragino Kaku Gothic ProN",
+          "Meiryo",
+          "メイリオ",
+          sans-serif;
+        font-weight: bold;
+      }
+      h1, h2, h3 {
+        font-weight: bold;
+      }
+      .remark-code,
+      .remark-inline-code {
+        font-family: "Menlo", "Monaco", "Courier new", monospace;
+      }
 
-code.remark-code {
-  display: block;
-  padding: 0.7em;
-  border-radius: 5px;
-  background-color: #272822;
-  color: #f3f3f3;
-  font-size: 23px;
-}
+      code.remark-code {
+        display: block;
+        padding: 0.7em;
+        border-radius: 5px;
+        background-color: #272822;
+        color: #f3f3f3;
+        font-size: 23px;
+      }
 
-.remark-slide-content {
-  color: #24292e;
-  font-size: 32px;
-  padding: 15px 60px;
-}
+      .remark-slide-content {
+        color: #24292e;
+        font-size: 32px;
+        padding: 15px 60px;
+      }
 
-.remark-slide-content.inverse {
-  color: #f3f3f3;
-  background-color: #272822;
-}
+      .remark-slide-content.inverse {
+        color: #f3f3f3;
+        background-color: #272822;
+      }
 
-.remark-slide-number a {
-  color: #24292e;
-  text-decoration: none;
-}
+      .remark-slide-number a {
+        color: #24292e;
+        text-decoration: none;
+      }
 
-.inverse .remark-slide-number a {
-  color: #f3f3f3;
-}
+      .inverse .remark-slide-number a {
+        color: #f3f3f3;
+      }
 
-.text-center {
-  text-align: center;
-}
+      .text-center {
+        text-align: center;
+      }
 
-.flex {
-  display: flex;
-}
-.items-center {
-  align-items: center;
-}
-.justify-center {
-  justify-content: center;
-}
-.gap-2 {
-  gap: 8px;
-}
-.text-4xl {
-  font-size: 40px;
-}
+      .flex {
+        display: flex;
+      }
+      .items-center {
+        align-items: center;
+      }
+      .justify-center {
+        justify-content: center;
+      }
+      .gap-2 {
+        gap: 8px;
+      }
+      .text-4xl {
+        font-size: 40px;
+      }
 
-      @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(-360deg);
+        }
+      }
     </style>
   </head>
   <body>
-    <textarea id="source" style="display: none">class: middle center
+    <textarea
+      id="source"
+      style="display: none"
+    >
+class: middle center
 
 <img src="assets/logo.svg" width="150" />
 
@@ -589,26 +610,43 @@ class: center
 
 
 ご清聴ありがとうございました 🙇‍♂️
-</textarea>
-    <div style="z-index: -1; position: fixed; display: flex; align-items: center; gap: 4px;">
-      <svg style="animation: spin 1s linear infinite; width: 18px; height: 18px;" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+</textarea
+    >
+    <div
+      style="z-index: -1; position: fixed; display: flex; align-items: center; gap: 4px"
+    >
+      <svg
+        style="animation: spin 1s linear infinite; width: 18px; height: 18px"
+        xmlns="http://www.w3.org/2000/svg"
+        class="icon icon-tabler icon-tabler-refresh"
+        width="44"
+        height="44"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="#2c3e50"
+        fill="none"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
         <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4" />
         <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4" />
       </svg>
       <span>loading...</span>
     </div>
     <script src="remark.js"></script>
-    
+
     <script>
-      window.slideshow = remark.create({"slideNumberFormat":"LY x Deno %current% / %total%","highlightStyle":"monokai"})
+      window.slideshow = remark.create({
+        "slideNumberFormat": "LY x Deno %current% / %total%",
+        "highlightStyle": "monokai",
+      });
     </script>
-    
+
     <script>
-      
-      ;window.LiveReloadOptions = {
-        host: 'localhost',
-        port: '35729'
+      window.LiveReloadOptions = {
+        host: "localhost",
+        port: "35729",
       };
     </script>
   </body>

@@ -14,7 +14,8 @@ class: middle center
 
 - x.com / github - @kt3k
 - Web エンジニア。
-- 2021年から Deno Land 社メンバー。最近は Standard Library と Node 互換性周り担当
+- 2021年から Deno Land 社メンバー。最近は Standard Library と Node
+  互換性周り担当
 
 ---
 class: center inverse
@@ -37,7 +38,6 @@ Deno ってサーバーサイドは気持ちよく使えるけど、<br />フロ
 --
 
 最近かなり改善してきてます
-
 ---
 
 ## トピック
@@ -60,8 +60,8 @@ Deno ってサーバーサイドは気持ちよく使えるけど、<br />フロ
 --
 
 実はきちんと型をつけるための設定があります。
-
 ---
+
 ## React の型付けのレシピ
 
 - jsxImportSource
@@ -106,6 +106,7 @@ deno.json を使う場合
   }
 }
 ```
+
 ---
 
 ## React の型付け
@@ -141,8 +142,8 @@ function Component() {
   return <div>count {value}</div>;
 }
 ```
-
 ---
+
 class: inverse middle center
 
 デモ
@@ -158,8 +159,8 @@ import { useState } from "react";
 この `@ts-types="@types/react"` の部分を書かなくても自動で探してこれるようにしようという議論があります。
 
 [denoland/deno#27569](https://github.com/denoland/deno/issues/27569)
-
 ---
+
 class: inverse middle center
 
 ところで
@@ -173,8 +174,8 @@ Deno はデフォルトで、Deno 環境に対して型チェックする。
 --
 
 deno.json の compilerOptions.lib という設定を変えると、Deno 以外の環境の型チェックが出来る
-
 ---
+
 ## Deno の型と環境
 
 ブラウザの型チェックをする設定
@@ -199,8 +200,6 @@ deno.json で型を変えるとプロジェクト全体に影響してしまう
 
 --
 1プロジェクトに、例えば、フロントエンドとバックエンドが混在している場合、きれいに設定する方法がなかった
-
-
 ---
 
 ## Workspace 別の型定義
@@ -225,6 +224,7 @@ Deno 1.45 から Workspace が使えるようになっている
 ---
 
 ./backend/deno.json
+
 ```json
 {
   "compilerOptions": {
@@ -234,6 +234,7 @@ Deno 1.45 から Workspace が使えるようになっている
 ```
 
 ./frontend/deno.json
+
 ```json
 {
   "compilerOptions": {
@@ -244,7 +245,8 @@ Deno 1.45 から Workspace が使えるようになっている
 
 ---
 
-注: Deno 2.2 は本日(2/17)時点では未リリースのため、今すぐ試したい場合はカナリーを使ってください
+注: Deno 2.2
+は本日(2/17)時点では未リリースのため、今すぐ試したい場合はカナリーを使ってください
 
 ```
 deno upgrade --canary
@@ -254,25 +256,22 @@ deno upgrade --canary
 class: middle inverse center
 
 デモ
-
 ---
+
 class: middle center inverse
 
 フロントエンドで使えるリントの話
-
 
 ---
 class: middle center inverse
 
 deno lint は Rust で書かれた高速なリンターですが、<br />フロントエンド系のルールがないのが弱点でした
-
-
-
 ---
 
 ## Rules of Hooks
 
-Deno 2.2 から [Rule of Hooks](https://react.dev/reference/rules/rules-of-hooks) が `deno lint` でチェックできるようになりました🎉
+Deno 2.2 から [Rule of Hooks](https://react.dev/reference/rules/rules-of-hooks)
+が `deno lint` でチェックできるようになりました🎉
 
 ---
 
@@ -283,9 +282,10 @@ Deno 2.2 から [Rule of Hooks](https://react.dev/reference/rules/rules-of-hooks
 function Foo() {
   const [state, useState] = useState();
 
-  return <span>{state}</span>
+  return <span>{state}</span>;
 }
 ```
+
 ---
 
 ## Rules of Hooks
@@ -295,7 +295,7 @@ function Foo() {
 function Foo() {
   if (cond) {
     const [state, useState] = useState();
-    return <span>{state}</span>
+    return <span>{state}</span>;
   }
   return null;
 }
@@ -324,7 +324,8 @@ function Foo() {
 
 ## React 向けリント設定
 
-React 向けのリントルールはデフォルトで有効化されていないので、deno.json で以下の設定をしてください
+React 向けのリントルールはデフォルトで有効化されていないので、deno.json
+で以下の設定をしてください
 
 ```json
 {
@@ -339,12 +340,10 @@ React 向けのリントルールはデフォルトで有効化されていな�
 }
 ```
 
-
 ---
 class: inverse middle center
 
 カスタムリントルール
-
 ---
 
 ## カスタムリントルール
@@ -358,8 +357,8 @@ export const MyRule = {
       if (node.name !== "a") return;
       ctx.report({ node, message: "should be b" });
     },
-  })
-}
+  }),
+};
 ```
 
 ---
@@ -367,7 +366,8 @@ export const MyRule = {
 ## カスタムリントルール
 
 - ESLint / typescript-eslint とほぼ互換な記述方法でリントルールをかけます
-- AST は [TSESTree](https://typescript-eslint.io/blog/asts-and-typescript-eslint/#ast-formats)
+- AST は
+  [TSESTree](https://typescript-eslint.io/blog/asts-and-typescript-eslint/#ast-formats)
 - フレームワーク固有、チーム固有なルールを JS/TS で書ける
 
 ---
@@ -387,6 +387,7 @@ export const MyRule = {
   }
 }
 ```
+
 ---
 
 ## カスタムリントルール
@@ -398,13 +399,13 @@ export const MyRule = {
 class: middle inverse center
 
 フロントエンドで使えるフォーマッターの話
-
 ---
 
 ## フォーマッタの追加
 
 - Deno 1.46 から CSS / HTML がフォーマットできるようになっています。
-- 特殊な設定なしで、`deno fmt` コマンドが .css .html ファイルを検出してフォーマットします。
+- 特殊な設定なしで、`deno fmt` コマンドが .css .html
+  ファイルを検出してフォーマットします。
 
 ---
 ## CSS フォーマッター
@@ -412,7 +413,6 @@ class: middle inverse center
 - LESS / SCSS / SASS にも対応
 
 <small>styled-component のような JS 内に書くタイプの CSS はまだ未対応</small>
-
 ---
 
 ## HTML フォーマッター
@@ -423,14 +423,13 @@ class: middle inverse center
 ## HTML フォーマッター
 
 - --unstable-component というフラグをつけると、Vue (.vue), Svelte (.svelte), Astro (.astro) のファイルがフォーマットできる
-
 ---
+
 ## フォーマッター、余談
 
 - YAML フォーマッターが追加 (1.46)
 - SQL フォーマッターが追加 (2.1, unstable 機能)
 - TOML (2.3 で入りそう)
-
 
 --
 <br /><br />deno fmt のカバー範囲についてはかなり許容的な態度になってきている
@@ -439,9 +438,8 @@ class: middle inverse center
 class: middle center inverse
 
 おまけ
-
-
 ---
+
 ## 現在開発中の機能
 
 - JS の中の CSS のフォーマット
@@ -456,9 +454,8 @@ class: center inverse
 # <br />
 
 Deno はフロントエンド向けの機能を絶賛開発中
-
-
 ---
+
 class: center inverse
 
 # <br />
@@ -481,8 +478,8 @@ class: center
 これは出来ないのか? という疑問を抱いた場合は<br/>ぜひ issue を投げてください
 
 ## [github.com/denoland/deno/issues](https://github.com/denoland/deno/issues/new/choose)
-
 ---
+
 class: center
 
 # <br />
@@ -492,6 +489,5 @@ class: center
 ## deno-ja slack #question
 
 で質問してみてください
-
 
 ご清聴ありがとうございました 🙇‍♂️

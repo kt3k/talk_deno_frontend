@@ -1,5 +1,4 @@
 // server
 Deno.serve(() => {
-  return new Response('Hello World');
+  return new Response("Hello World");
 });
-

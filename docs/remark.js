@@ -2247,7 +2247,7 @@ require = (function e(t, n, r) {
     14: [function (require, module, exports) {
       /* Automatically generated */
 
-      var hljs = (function () {
+      var hljs = function () {
           var exports = {};
           /*
 Syntax highlighting with language autodetection.
@@ -3170,7 +3170,7 @@ https://highlightjs.org/
           });
 
           return exports;
-        }()),
+        }(),
         languages = [{
           name: "lisp",
           create: /*
@@ -18636,7 +18636,7 @@ Description: FANUC TP programming language (TPP).
               var TPDATA = {
                 className: "built_in",
                 begin:
-"(AR|P|PAYLOAD|PR|R|SR|RSR|LBL|VR|UALM|MESSAGE|UTOOL|UFRAME|TIMER|\
+                  "(AR|P|PAYLOAD|PR|R|SR|RSR|LBL|VR|UALM|MESSAGE|UTOOL|UFRAME|TIMER|\
     TIMER_OVERFLOW|JOINT_MAX_SPEED|RESUME_PROG|DIAG_REC)\\[",
                 end: "\\]",
                 contains: [
@@ -21000,36 +21000,36 @@ Category: config
       function Parser() {}
 
       /*
- *  Parses source string into list of slides.
- *
- *  Output format:
- *
- *  [
- *    // Per slide
- *    {
- *      // Properties
- *      properties: {
- *        name: 'value'
- *      },
- *      // Notes (optional, same format as content list)
- *      notes: [...],
- *      // Link definitions
- *      links: {
- *        id: { href: 'url', title: 'optional title' },
- *        ...
- *      ],
- *      content: [
- *        // Any content but content classes are represented as strings
- *        'plain text ',
- *        // Content classes are represented as objects
- *        { block: false, class: 'the-class', content: [...] },
- *        { block: true, class: 'the-class', content: [...] },
- *        ...
- *      ]
- *    },
- *    ...
- *  ]
- */
+       *  Parses source string into list of slides.
+       *
+       *  Output format:
+       *
+       *  [
+       *    // Per slide
+       *    {
+       *      // Properties
+       *      properties: {
+       *        name: 'value'
+       *      },
+       *      // Notes (optional, same format as content list)
+       *      notes: [...],
+       *      // Link definitions
+       *      links: {
+       *        id: { href: 'url', title: 'optional title' },
+       *        ...
+       *      ],
+       *      content: [
+       *        // Any content but content classes are represented as strings
+       *        'plain text ',
+       *        // Content classes are represented as objects
+       *        { block: false, class: 'the-class', content: [...] },
+       *        { block: true, class: 'the-class', content: [...] },
+       *        ...
+       *      ]
+       *    },
+       *    ...
+       *  ]
+       */
       Parser.prototype.parse = function (src, macros) {
         var self = this,
           lexer = new Lexer(),
