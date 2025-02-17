@@ -2,6 +2,9 @@ dest: docs
 port: 30000
 title: 'Deno Update: 最近のフロントエンド向け機能'
 description: 'Deno Update: 最近のフロントエンド向け機能'
+ogImage: "https://kt3k.github.io/talk_deno_frontend/assets/og-image.png"
+ogImageWidth: 800
+ogImageHeight: 503
 favicon: ./assets/logo.svg
 remarkConfig:
   slideNumberFormat: '%current% / %total%'
